@@ -6,38 +6,26 @@ import logging
 import sys
 import matplotlib.pyplot as plt
 
-def stitch_images_CV(images, output):
+def stitch_images(images, output):
   stitcher = cv2.Stitcher_create()
   (status, stitched) = stitcher.stitch(images)
   
   if status == 0:
     cv2.imwrite(output, stitched)
+    filling_pixels(stitched)
 
-def stitch_images(images, output):
-  detect_features(images)
+def filling_pixels(img):
+  # Find the black pixels
+  temp = (img == 0)
 
-  pass
+  # Create a mask
+  mask = temp.astype(np.uint8) * 255
+  mask_gray = np.mean(mask, axis=2)
+  mask_gray = mask_gray.astype(np.uint8)
 
-def detect_features(images):
-  orb = cv2.ORB_create()
-  # features = []
-  # for img in images:
-  #   features.append(orb.detectAndCompute(img, None))
-  img1 = images[0]
-  img2 = images[1]
-  kp1, des1 = orb.detectAndCompute(img1,None)
-  kp2, des2 = orb.detectAndCompute(img2,None)
-
-  # create BFMatcher object
-  bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
-  # Match descriptors.
-  matches = bf.match(des1,des2)
-  #print(matches)
-  # Sort them in the order of their distance.
-  matches = sorted(matches, key = lambda x:x.distance)
-  # Draw first 10 matches.
-  img3 = cv2.drawMatches(img1,kp1,img2,kp2,matches[:10],None,flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
-  plt.imshow(img3),plt.show()
+  # Apply inpaint to fill the black pixels
+  filled = cv2.inpaint(img, mask_gray, 3, cv2.INPAINT_TELEA)
+  cv2.imwrite("filled.jpg", filled)
 
 
 if __name__ == "__main__":
@@ -56,7 +44,5 @@ if __name__ == "__main__":
   for i in inputPath:
     image = cv2.imread(i)
     images.append(image)
-
-  #stitch_images_CV(images, output)
 
   stitch_images(images, output)
