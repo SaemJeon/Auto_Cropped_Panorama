@@ -32,12 +32,20 @@ Note:
 * Depending on your local machine, you may need to change ```python``` to ```python3```.
 
 ## Exmaple Results
+Basic Image Stitching
+![Basic Image Stitching](Test_Outputs/test2.jpg)
+
+Filling Black Pixels
+![Filling Black Pixels](Test_Outputs/filled_test2.jpg)
+
+Auto-Cropping
+![Auto-Cropping](Test_Outputs/coppred_test2.jpg)
 
 ## Authors
 * Saem Jeon
 * Abigail Clune
 
 ## References
-[Original Cropping Implementation](https://www.pyimagesearch.com/2018/12/17/image-stitching-with-opencv-and-python/){:target="_blank"}
+[Original Cropping Implementation](https://www.pyimagesearch.com/2018/12/17/image-stitching-with-opencv-and-python/)
 
-[Automatic Panoramic Image Stitching](http://matthewalunbrown.com/papers/ijcv2007.pdf){:target="_blank"}
+[Automatic Panoramic Image Stitching](http://matthewalunbrown.com/papers/ijcv2007.pdf)

@@ -1,3 +1,8 @@
+"""
+Implementation by Adrian Rosebrok found in 
+https://www.pyimagesearch.com/2018/12/17/image-stitching-with-opencv-and-python/
+"""
+
 from imutils import paths
 import imutils
 import numpy as np

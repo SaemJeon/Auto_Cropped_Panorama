@@ -154,7 +154,7 @@ def largest_rectangle(mask):
 	max_height = 0
 	max_y = 0
 
-	logger.info("Finding the Largest Area to Crop")
+	logger.info("Finding the Biggest Area to Crop")
 	for i in range(len(mask)):
 		# Find the largest rectangular area each row
 		largest_subarray_area, idx_left, idx_right, height = max_hist(max_height_table[i])
@@ -202,8 +202,9 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description="Panoramic Image Stitching")
 	parser.add_argument("inputImages", type=str, help="Input image directory")
 	parser.add_argument("outputImage", type=str, help="Output image")
-	parser.add_argument("--crop", help='Auto-crop the output image', action="store_true")
-	parser.add_argument("--fill", help='Fill the black pixels', action="store_true")
+	group = parser.add_mutually_exclusive_group()
+	group.add_argument("--crop", help='Auto-crop the output image', action="store_true")
+	group.add_argument("--fill", help='Fill the black pixels', action="store_true")
 	args = parser.parse_args()
 
 	inputPath = sorted(list(paths.list_images(args.inputImages)))
