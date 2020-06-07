@@ -39,7 +39,7 @@ Filling Black Pixels
 ![Filling Black Pixels](Test_Outputs/filled_test2.jpg)
 
 Auto-Cropping
-![Auto-Cropping](Test_Outputs/coppred_test2.jpg)
+![Auto-Cropping](Test_Outputs/cropped_test2.jpg)
 
 ## Authors
 * Saem Jeon
