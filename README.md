@@ -33,17 +33,17 @@ Note:
 
 ## Exmaple Results
 Basic Image Stitching
-![Basic Image Stitching](Test_Outputs/test2.jpg)
+![Basic Image Stitching](Test_Outputs/Simple_Image_Stitching/test2.jpg)
 
 Filling Black Pixels
-![Filling Black Pixels](Test_Outputs/filled_test2.jpg)
+![Filling Black Pixels](Test_Outputs/Filling/filled_test2.jpg)
 
 Auto-Cropping
-![Auto-Cropping](Test_Outputs/cropped_test2.jpg)
+![Auto-Cropping](Test_Outputs/Auto_Cropping/cropped_test2.jpg)
 
 ## Authors
-* Saem Jeon
-* Abigail Clune
+* Saem Jeon (sj846@drexel.edu)
+* Abigail Clune (aec332@drexel.edu)
 
 ## References
 [Original Cropping Implementation](https://www.pyimagesearch.com/2018/12/17/image-stitching-with-opencv-and-python/)
